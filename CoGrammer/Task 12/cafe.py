@@ -15,7 +15,14 @@ stock = {
 }
 
 # Calculate the total stock worth
-total_stock_worth = sum(stock[item] * menu[item] for item in menu)
+total_stock_worth = 0
+
+# Error handling for missing items in stock or price
+for item in menu:
+    try:
+        total_stock_worth += stock[item] * menu[item]
+    except KeyError:
+        print(f"Error: {item} is missing in either stock or price.")
 
 # Print the results
 print("Menu:")
