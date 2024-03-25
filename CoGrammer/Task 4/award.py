@@ -1,9 +1,14 @@
 # define variable for the time of each event
 # then calculate the total time for the triathlon
 
-swim = int(input("Please enter the time for the swiming event in minutes: "))
-cycle = int(input("Please enter the time for the cycling event in minutes: "))
-run = int(input("Please enter the time for the running event in minutes: "))
+while True:
+    try:
+        swim = int(input("Please enter the time for the swimming event in minutes: "))
+        cycle = int(input("Please enter the time for the cycling event in minutes: "))
+        run = int(input("Please enter the time for the running event in minutes: "))
+        break  # Break out of the loop if all inputs are successfully converted to integers
+    except ValueError:
+        print("Please enter numeric values only.")
 
 total = swim + cycle + run
 
