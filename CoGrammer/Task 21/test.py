@@ -46,3 +46,19 @@ neutral_perc = (neutral_count / total) * 100
 print(f"Positive percentage: {positive_perc:.2f}%")
 print(f"Negative percentage: {negative_perc:.2f}%")
 print(f"Neutral percentage: {neutral_perc:.2f}%")
+
+# Selecting a random sample of reviews for testing
+sample_reviews = clean_data.sample(n=5)['clean_text']
+
+# Analyzing sentiment for the sample reviews
+for review in sample_reviews:
+    polarity_score = spacy_polarity(review)
+    if polarity_score > 0:
+        sentiment = 'positive'
+    elif polarity_score < 0:
+        sentiment = 'negative'
+    else:
+        sentiment = 'neutral'
+    print(f"Review: {review}")
+    print(f"Sentiment: {sentiment}")
+    print("--------------")
